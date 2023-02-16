@@ -124,7 +124,7 @@ public class ClientDao implements IDao<Client, Long> {
         try {
             Files.writeString(FileBasePaths.CLIENT_TABLE, clientStr, StandardOpenOption.APPEND);
             System.out.println("Client n ° "+ id + " a été ajouté avec succès ^_^");
-            //client.setId(id); ???
+            client.setId(id);
 
             }
         catch (IOException e) { e.printStackTrace();}

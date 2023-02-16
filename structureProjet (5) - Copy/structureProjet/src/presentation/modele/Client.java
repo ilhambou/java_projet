@@ -67,6 +67,17 @@ public class Client extends Utilisateur{
         setSexe(sexe);
         comptesClient = new ArrayList<Compte>();
     }
+    /////// ?????????? supp apres
+    public Client(String login, String pass, String n, String p, String mail, String cin, String tel )
+    {
+        super(login, pass, "Client");
+        setNom(n);
+        setPrenom(p);
+        setTel(tel);
+        setEmail(mail);
+        setCin(cin);
+        comptesClient = new ArrayList<Compte>();
+    }
 
     @Override
     public String toString() {

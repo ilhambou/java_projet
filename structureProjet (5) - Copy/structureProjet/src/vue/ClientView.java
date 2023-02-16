@@ -1,6 +1,10 @@
 package vue;
 
 
+import presentation.modele.Banque;
+import presentation.modele.Client;
+import presentation.modele.Sexe;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -8,6 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ClientView extends JFrame implements ActionListener {
+    Banque maBanque;
     //declarer
     private Container myViewContainer;
     private JPanel titlePanel,formPanel,buttonsPannel;
@@ -233,7 +238,7 @@ public class ClientView extends JFrame implements ActionListener {
     }
     private void initButtons(){
         //---------------btn login-------------
-        //initialisation du bouton login
+       //initialisation du bouton login
         btn_login= new JButton("connecter");
         //personnalisation du label titre
         //modif de la police du texte
@@ -345,7 +350,7 @@ public class ClientView extends JFrame implements ActionListener {
         //affecter un flowLayout
         buttonsPannel.setLayout(new FlowLayout(FlowLayout.RIGHT));
         //ajouter titre au centre
-        buttonsPannel.add(btn_login);
+        //buttonsPannel.add(btn_login);
         buttonsPannel.add(btn_cancel);
         buttonsPannel.add(btn_ajout);
 
@@ -396,9 +401,28 @@ public class ClientView extends JFrame implements ActionListener {
         {
             System.out.println("au revoir");
         }
-        if(e.getSource() == btn_login)
+        if(e.getSource() == btn_ajout)
         {
-            System.out.println("login");
+            System.out.println("test");
+
+            String nom = txt_nom.getText();
+            String prenom = txt_prenom.getText();
+            String email = txt_email.getText();
+            String cin = txt_cin.getText();
+            String login = txt_login.getText();
+            String psw = txt_pass.getText();
+            String tel = txt_tel.getText();
+           // String sexe = txt_sexe.getText();
+
+            Client client=new Client(login,psw,nom,prenom,email,cin,tel);
+
+            maBanque.getClientsDeBanque().add(client);
+
+            System.out.println("le client "+nom+" a ete ajoute avec succes");
+
+
+
+
         }
 
     }
